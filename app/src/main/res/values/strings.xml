@@ -38,6 +38,7 @@
     <string name="enter_volume">Enter volume</string>
     <string name="empty_value">Value is empty</string>
     <string name="invalid_value">Invalid value</string>
+    <string name="current_volume_text">Current Volume: 50%</string>
 
     <string-array name="colors">
         <item>Red</item>
