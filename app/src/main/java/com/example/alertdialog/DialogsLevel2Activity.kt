@@ -1,11 +1,9 @@
 package com.example.alertdialog
 
-import android.content.Context
 import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.view.inputmethod.InputMethodManager
+import android.view.WindowManager
 import androidx.appcompat.app.AlertDialog
 import com.example.alertdialog.databinding.ActivityDialogsLevel2Binding
 import com.example.alertdialog.databinding.PartVolumeBinding
@@ -91,7 +89,6 @@ class DialogsLevel2Activity : AppCompatActivity() {
             .create()
         dialog.setOnShowListener {
             dialogBinding.volumeInputEditText.requestFocus()
-            showKeyBoard(dialogBinding.volumeInputEditText)
 
             dialog.getButton(DialogInterface.BUTTON_POSITIVE).setOnClickListener {
                 val enteredText = dialogBinding.volumeInputEditText.text.toString()
@@ -110,23 +107,8 @@ class DialogsLevel2Activity : AppCompatActivity() {
                 dialog.dismiss()
             }
         }
-        dialog.setOnDismissListener { hideKeyBoard(dialogBinding.volumeInputEditText) }
+        dialog.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
         dialog.show()
-    }
-
-    private fun showKeyBoard(view: View) {
-        view.post {
-            getInputMethodManager(view).showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
-        }
-    }
-
-    private fun hideKeyBoard(view: View) {
-        getInputMethodManager(view).hideSoftInputFromWindow(view.windowToken, 0)
-    }
-
-    private fun getInputMethodManager(view: View): InputMethodManager {
-        val context = view.context
-        return context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     }
 
     private fun updateUi() {
