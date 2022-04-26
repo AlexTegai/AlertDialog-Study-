@@ -9,3 +9,4 @@ class DialogsLevel2Activity : AppCompatActivity() {
         setContentView(R.layout.activity_dialogs_level2)
     }
 }
+
