@@ -49,7 +49,6 @@ class DialogsLevel1Activity : AppCompatActivity() {
         color = savedInstanceState?.getInt(KEY_COLOR) ?: Color.RED
 
         updateUi()
-
     }
 
     // ---- Default Alert Dialog ----
@@ -190,7 +189,6 @@ class DialogsLevel1Activity : AppCompatActivity() {
     }
 
     companion object {
-//        private const val TAG = DialogsLevel1Activity::class.java.simpleName
         private const val KEY_VOLUME = "KEY_VOLUME"
         private const val KEY_COLOR = "KEY_COLOR"
     }
